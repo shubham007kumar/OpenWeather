@@ -18,6 +18,8 @@ export default function DateFilter() {
       console.log("Please select a date");
     }
   };
+
+  console.log("date filter render");
   return (
     <div className={styles["date-filter-container"]}>
       <input

@@ -1,0 +1,30 @@
+.weather-widget-container{
+    background-image: url('../../assests/weather.jpg'); /* Ensure the correct path */
+    background-size: cover; /* Ensures the image covers the whole container */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Ensures no image repetition */
+    border: 1px solid #ccc; /* Remove quotes */
+    padding: 20px; /* Remove quotes */
+    border-radius: 8px; /* Remove quotes */
+    max-width: 300px;
+    height: auto; /* Ensures the container grows with content */
+    min-height: 200px;
+    margin: auto;
+}
+
+.weather-widget-temp{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.weather-widget-icon{
+    width: 50px;
+    height: 50px;
+}
+
+.weather-widget-details{
+    display: flex;
+    justify-content: space-between;
+    margin-top: "10px";
+}

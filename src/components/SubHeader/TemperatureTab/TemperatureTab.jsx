@@ -3,7 +3,7 @@ import styles from "./TemperatureTab.module.css";
 
 export default function TemperatureTab() {
   const [activeTab, setActiveTab] = useState("tab1");
-
+  console.log("temperature tab render");
   return (
     <div className={styles["tab-container"]}>
       <button
