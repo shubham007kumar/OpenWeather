@@ -1,30 +1,28 @@
 import React, { useState, useEffect } from "react";
 import styles from "./WeatherWidget.module.css";
-const WeatherWidget = ({ city }) => {
+import { useWeather } from "../../context/useWeather";
+import { weatherService } from "../../services/weather";
+const WeatherWidget = () => {
   const [weather, setWeather] = useState(null);
+  const { city, units } = useWeather();
 
   useEffect(() => {
-    // Replace with your OpenWeather API key
-    const apiKey = "b261351e7f694ddca7391249fe256d3c";
     const fetchWeather = async () => {
       try {
-        const response = await fetch(
-          `https://api.openweathermap.org/data/2.5/weather?q=${"gaya"}&units=metric&appid=${apiKey}`
-        );
-        const responseJson = await response.json();
-        setWeather(responseJson);
+        const response = await weatherService.getWeather(city, units);
+        setWeather(response);
       } catch (error) {
         console.error("Error fetching the weather data", error);
       }
     };
 
     fetchWeather();
-  }, [city]);
+  }, [city, units]);
 
   if (!weather) {
     return <div>Loading...</div>;
   }
-
+  console.log("weather details");
   const { main, wind, weather: weatherDetails, visibility, clouds } = weather;
   const temperature = main.temp;
   const feelsLike = main.feels_like;
@@ -48,10 +46,14 @@ const WeatherWidget = ({ city }) => {
           src={iconUrl}
           alt={weatherDescription}
         />
-        <h3>{Math.round(temperature)}°C</h3>
+        <h3>
+          {Math.round(temperature)}
+          {units == "metric" ? "°C" : "°F"}
+        </h3>
       </div>
       <p>
-        Feels like {Math.round(feelsLike)}°C. {weatherDetails[0].description}.
+        Feels like {Math.round(feelsLike)}
+        {units == "metric" ? "°C" : "°F"}. {weatherDetails[0].description}.
         Gentle Breeze.
       </p>
       <div className={styles["weather-widget-details"]}>

@@ -1,24 +1,31 @@
 import React, { useState } from "react";
 import styles from "./TemperatureTab.module.css";
+import { useWeather } from "../../../context/useWeather";
 
 export default function TemperatureTab() {
-  const [activeTab, setActiveTab] = useState("tab1");
+  const [activeTab, setActiveTab] = useState("metric");
+  const { setUnits } = useWeather();
+  const handleChange = (tab) => {
+    setActiveTab(tab);
+    setUnits(tab);
+  };
   console.log("temperature tab render");
+  console.log(activeTab);
   return (
     <div className={styles["tab-container"]}>
       <button
         className={`${styles.tabButton} ${
-          activeTab === "tab1" ? styles.active : ""
+          activeTab === "metric" ? styles.active : ""
         }`}
-        onClick={() => setActiveTab("tab1")}
+        onClick={() => handleChange("metric")}
       >
         Metric: °C, m/s
       </button>
       <button
         className={`${styles.tabButton} ${
-          activeTab === "tab2" ? styles.active : ""
+          activeTab === "imperial" ? styles.active : ""
         }`}
-        onClick={() => setActiveTab("tab2")}
+        onClick={() => handleChange("imperial")}
       >
         Imperial: °F, mph
       </button>

@@ -4,20 +4,16 @@ import Header from "./components/Header/Header";
 import SubHeader from "./components/SubHeader/SubHeader";
 import WeatherWidget from "./components/Widget/WeatherWidget";
 import { useState } from "react";
+import { WeatherProvider } from "./context/Weather";
 
 function App() {
-  const [city, setCity] = useState("Gaya");
-
-  const handleCityChange = (newCity) => {
-    setCity(newCity);
-  };
   console.log("App render");
   return (
-    <div>
+    <WeatherProvider>
       <Header />
-      <SubHeader onCityChange={handleCityChange} />
-      <WeatherWidget city={city} />
-    </div>
+      <SubHeader />
+      <WeatherWidget />
+    </WeatherProvider>
   );
 }
 

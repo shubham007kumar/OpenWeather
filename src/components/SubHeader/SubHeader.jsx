@@ -3,11 +3,11 @@ import styles from "./SubHeader.module.css";
 import SearchBar from "./Search/SearchBar";
 import TemperatureTab from "./TemperatureTab/TemperatureTab";
 import DateFilter from "./Filter/DateFilter";
-export default function SubHeader({onCityChange}) {
-  console.log('subheader render');
+export default function SubHeader() {
+  console.log("subheader render");
   return (
     <div className={styles["subHeader-container"]}>
-      <SearchBar onSearch={onCityChange} />
+      <SearchBar />
       <div className={styles["filter-container"]}>
         <DateFilter />
         <TemperatureTab />

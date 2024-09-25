@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 import styles from "./DateFilter.module.css";
+import { useWeather } from "../../../context/useWeather";
 
-export default function DateFilter() {
-  const [selectedDate, setSelectedDate] = useState("");
-
-  const handleDateChange = (e) => {
-    setSelectedDate(e.target.value);
-  };
-
+const DateFilter = () => {
+  const [date, setDate] = useState(new Date());
+  const { setSelectedDate } = useWeather();
   const today = new Date().toISOString().split("T")[0];
 
   const handleFilter = () => {
-    if (selectedDate) {
-      console.log(`Filtering data for ${selectedDate}`);
-      // Add filter logic here, like an API call or data processing
+    if (date) {
+      setSelectedDate(date);
     } else {
       console.log("Please select a date");
     }
@@ -25,8 +21,8 @@ export default function DateFilter() {
       <input
         className={styles["date-input"]}
         type="date"
-        value={selectedDate}
-        onChange={handleDateChange}
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
         max={today}
       />
 
@@ -35,4 +31,6 @@ export default function DateFilter() {
       </button>
     </div>
   );
-}
+};
+
+export default React.memo(DateFilter);

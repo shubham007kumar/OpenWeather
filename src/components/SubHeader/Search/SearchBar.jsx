@@ -1,21 +1,21 @@
 import React from "react";
 import styles from "./SearchBar.module.css";
-export default function SearchBar({ onSearch }) {
-  const [city, setCity] = React.useState("Gaya");
+import { useWeather } from "../../../context/useWeather";
+export default function SearchBar() {
+  const [searchText, setSearchText] = React.useState("Gaya");
+  const { setCity } = useWeather();
   const handleSearch = () => {
-    if (onSearch) {
-      onSearch(city);
-    }
+    setCity(searchText);
   };
   console.log("search render");
   return (
     <div className={styles["search-container"]}>
       <input
-        value={city}
+        value={searchText}
         className={styles["search-bar"]}
         type="text"
         placeholder="Search for a city"
-        onChange={(e) => setCity(e.target.value)}
+        onChange={(e) => setSearchText(e.target.value)}
       />
       <button onClick={handleSearch} className={styles["search-button"]}>
         Search
