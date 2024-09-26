@@ -1,0 +1,60 @@
+.forecast-container{
+    padding: 20px; 
+    max-width: 350px;
+    height: auto;
+    min-height: 200px;
+}
+.forecast-row{
+    display: flex;
+    color: #48484a;
+    padding: "10px 0";
+    gap: 1rem;
+    border-bottom: "1px solid #ccc";
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .forecast-row{
+        padding: "5px 0";
+        font-size: 0.7rem;
+    }  
+}
+
+.forecast-time{
+    width: 30%;
+}
+
+.forecast-temp{
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+@media (max-width: 768px) {
+    .forecast-temp{
+        width: 20%;
+        display: block;
+    }
+}
+
+.forecast-icon{
+    width: 50px;
+    height: 50px;
+}
+
+@media (max-width: 768px) {
+    .forecast-icon{
+        width: 30px;
+        height: 30px;
+    }
+    
+}
+
+.forecast-desc{
+    width: 30%;
+    text-align: right;
+    font-size: 0.7rem;
+}

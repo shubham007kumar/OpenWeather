@@ -6,6 +6,7 @@ export const WeatherProvider = ({ children }) => {
   const [city, setCity] = useState("Gaya");
   const [selectedDate, setSelectedDate] = useState(null);
   const [units, setUnits] = useState("metric");
+  const [forecast, setForecast] = useState([]);
   const contextValue = useMemo(
     () => ({
       city,
@@ -14,8 +15,10 @@ export const WeatherProvider = ({ children }) => {
       setSelectedDate,
       units,
       setUnits,
+      forecast,
+      setForecast,
     }),
-    [city, selectedDate, units]
+    [city, selectedDate, units, forecast]
   );
   console.log(contextValue);
   return (

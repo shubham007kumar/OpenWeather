@@ -1,15 +1,9 @@
 .weather-widget-container{
-    background-image: url('../../assests/weather.jpg'); /* Ensure the correct path */
-    background-size: cover; /* Ensures the image covers the whole container */
-    background-position: center; /* Centers the background image */
-    background-repeat: no-repeat; /* Ensures no image repetition */
-    border: 1px solid #ccc; /* Remove quotes */
-    padding: 20px; /* Remove quotes */
-    border-radius: 8px; /* Remove quotes */
+    padding: 20px; 
+    border-radius: 8px; 
     max-width: 300px;
-    height: auto; /* Ensures the container grows with content */
+    height: auto; 
     min-height: 200px;
-    margin: auto;
 }
 
 .weather-widget-temp{

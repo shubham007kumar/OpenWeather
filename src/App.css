@@ -1,0 +1,13 @@
+.weather-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .weather-container {
+    flex-direction: column;
+  }
+    
+}

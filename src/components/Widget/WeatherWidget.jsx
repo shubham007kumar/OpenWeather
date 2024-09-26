@@ -4,13 +4,15 @@ import { useWeather } from "../../context/useWeather";
 import { weatherService } from "../../services/weather";
 const WeatherWidget = () => {
   const [weather, setWeather] = useState(null);
-  const { city, units } = useWeather();
-
+  const { city, units, setForecast } = useWeather();
+  const [coordinates, setCoordinates] = useState(null);
   useEffect(() => {
     const fetchWeather = async () => {
       try {
         const response = await weatherService.getWeather(city, units);
         setWeather(response);
+        const { lon, lat } = response?.coord;
+        setCoordinates({ lon, lat });
       } catch (error) {
         console.error("Error fetching the weather data", error);
       }
@@ -18,6 +20,20 @@ const WeatherWidget = () => {
 
     fetchWeather();
   }, [city, units]);
+
+  useEffect(() => {
+    const fetchForecast = async () => {
+      try {
+        const { lon, lat } = coordinates;
+        const response = await weatherService.getForeCast(lat, lon, units);
+        setForecast(response.list);
+      } catch (error) {
+        console.error("Error fetching the weather data", error);
+      }
+    };
+
+    fetchForecast();
+  }, [coordinates, units]);
 
   if (!weather) {
     return <div>Loading...</div>;

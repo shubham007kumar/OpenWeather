@@ -5,6 +5,7 @@ import SubHeader from "./components/SubHeader/SubHeader";
 import WeatherWidget from "./components/Widget/WeatherWidget";
 import { useState } from "react";
 import { WeatherProvider } from "./context/Weather";
+import Forecast from "./components/Forecast/Forecast";
 
 function App() {
   console.log("App render");
@@ -12,7 +13,10 @@ function App() {
     <WeatherProvider>
       <Header />
       <SubHeader />
-      <WeatherWidget />
+      <div className="weather-container">
+        <WeatherWidget />
+        <Forecast />
+      </div>
     </WeatherProvider>
   );
 }
