@@ -5,6 +5,9 @@ import styles from "./Forecast.module.css";
 
 const Forecast = () => {
   const { forecast } = useWeather();
+    if (!forecast || forecast.length === 0) {
+        return null;
+      }
   return (
     <div className={styles["forecast-container"]}>
       <h2>8-day forecast</h2>

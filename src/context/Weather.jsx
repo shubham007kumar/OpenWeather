@@ -20,7 +20,6 @@ export const WeatherProvider = ({ children }) => {
     }),
     [city, selectedDate, units, forecast]
   );
-  console.log(contextValue);
   return (
     <WeatherContext.Provider value={contextValue}>
       {children}

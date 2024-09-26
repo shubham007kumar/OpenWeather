@@ -7,7 +7,6 @@ export default function SearchBar() {
   const handleSearch = () => {
     setCity(searchText);
   };
-  console.log("search render");
   return (
     <div className={styles["search-container"]}>
       <input

@@ -38,7 +38,6 @@ const WeatherWidget = () => {
   if (!weather) {
     return <div>Loading...</div>;
   }
-  console.log("weather details");
   const { main, wind, weather: weatherDetails, visibility, clouds } = weather;
   const temperature = main.temp;
   const feelsLike = main.feels_like;

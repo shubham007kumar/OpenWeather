@@ -4,7 +4,6 @@ import SearchBar from "./Search/SearchBar";
 import TemperatureTab from "./TemperatureTab/TemperatureTab";
 import DateFilter from "./Filter/DateFilter";
 export default function SubHeader() {
-  console.log("subheader render");
   return (
     <div className={styles["subHeader-container"]}>
       <SearchBar />

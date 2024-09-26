@@ -15,7 +15,6 @@ const DateFilter = () => {
     }
   };
 
-  console.log("date filter render");
   return (
     <div className={styles["date-filter-container"]}>
       <input

@@ -8,7 +8,6 @@ import { WeatherProvider } from "./context/Weather";
 import Forecast from "./components/Forecast/Forecast";
 
 function App() {
-  console.log("App render");
   return (
     <WeatherProvider>
       <Header />

@@ -9,8 +9,6 @@ export default function TemperatureTab() {
     setActiveTab(tab);
     setUnits(tab);
   };
-  console.log("temperature tab render");
-  console.log(activeTab);
   return (
     <div className={styles["tab-container"]}>
       <button
