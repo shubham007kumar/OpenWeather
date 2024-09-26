@@ -6,6 +6,7 @@ const WeatherWidget = () => {
   const [weather, setWeather] = useState(null);
   const { city, units, setForecast } = useWeather();
   const [coordinates, setCoordinates] = useState(null);
+  const [error, setError] = useState(null); 
   useEffect(() => {
     const fetchWeather = async () => {
       try {
@@ -14,7 +15,9 @@ const WeatherWidget = () => {
         const { lon, lat } = response?.coord;
         setCoordinates({ lon, lat });
       } catch (error) {
-        console.error("Error fetching the weather data", error);
+        setError("Failed to fetch weather data. Please try again.");
+        setWeather(null);
+        setCoordinates(null); 
       }
     };
 
@@ -34,6 +37,10 @@ const WeatherWidget = () => {
 
     fetchForecast();
   }, [coordinates, units]);
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   if (!weather) {
     return <div>Loading...</div>;

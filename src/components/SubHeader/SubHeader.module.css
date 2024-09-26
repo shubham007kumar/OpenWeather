@@ -42,6 +42,6 @@
     }
     .filter-container{
         width: 100%;
-        gap: 2px;
+         gap: 10px;
     }
 }
